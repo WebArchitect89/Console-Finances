@@ -119,7 +119,6 @@ var finances = [
 // Calculated the total number of months
 console.log("Financial Analysis");
 console.log("--------------------");
-console.log("-------");
 var totalNumberOfMonths = (finances.length);
 console.log(" Total Months: " + totalNumberOfMonths);
 
