@@ -86,6 +86,36 @@ var finances = [
     ['Jan-2017', 138230],
     ['Feb-2017', 671099]
 ];
+
+//Pseudocode
+
+// The total number of months included in the dataset.
+// figure out how many rows there are in the finances variable
+// The net total amount of Profit/Losses over the entire period.
+// add everything together
+// probably a loop
+// The average of the changes in Profit/Losses over the entire period.
+// calculate each change by subtracting the previous month from this month
+// You will need to track what the total change in profits is from month to month and then find the average.
+// (Total/total number of changes) ===> total change/(months - 1)
+// maybe put all the changes into an array? using .push(...) ?
+// The greatest increase in profits (date and amount) over the entire period.
+// start with 0
+//   check the last increase. If it's bigger than 0, keep track of the new biggest one.
+//   in a loop
+// The greatest decrease in losses (date and amount) over the entire period.
+// console output format!
+// Financial Analysis
+// ----------------------------
+// Total Months: 25
+// Total: $2561231
+// Average  Change: $-2315.12
+// Greatest Increase in Profits: Feb-2012 ($1926159)
+// Greatest Decrease in Profits: Sep-2013 ($-2196167)
+
+
+
+
 // Calculated the total number of months
 console.log("Financial Analysis");
 console.log("--------------------");
@@ -128,8 +158,7 @@ var averageChange = totalMonthlyChange/totalNumberOfM;
 
 console.log(" Average Change: $" + averageChange)
 
-//find out the greatest increase in profits (date and amount) over the entire.
-
+//find out the greatest increase in profits (date and amount) over the entire period.
 
 var largest = (monthlyChangesPL[0]);
 
@@ -140,35 +169,16 @@ for (var i = 0; i<monthlyChangesPL.length; i++ ){
 }
 console.log(" Greatest increase in profits:  Feb2012  "+ "("+largest+")")
 
+//The greatest decrease in losses (date and amount) over the entire period.
 
+var lowest = (monthlyChangesPL[0]);
 
-
-
-
-// The total number of months included in the dataset.
-// figure out how many rows there are in the finances variable
-// The net total amount of Profit/Losses over the entire period.
-// add everything together
-// probably a loop
-// The average of the changes in Profit/Losses over the entire period.
-// calculate each change by subtracting the previous month from this month
-// You will need to track what the total change in profits is from month to month and then find the average.
-// (Total/total number of changes) ===> total change/(months - 1)
-// maybe put all the changes into an array? using .push(...) ?
-// The greatest increase in profits (date and amount) over the entire period.
-// start with 0
-//   check the last increase. If it's bigger than 0, keep track of the new biggest one.
-//   in a loop
-// The greatest decrease in losses (date and amount) over the entire period.
-// console output format!
-// Financial Analysis
-// ----------------------------
-// Total Months: 25
-// Total: $2561231
-// Average  Change: $-2315.12
-// Greatest Increase in Profits: Feb-2012 ($1926159)
-// Greatest Decrease in Profits: Sep-2013 ($-2196167)
-
+for (var i = 0; i<monthlyChangesPL.length; i++ ){
+    if(monthlyChangesPL[i]<lowest){
+        lowest = monthlyChangesPL[i];
+    }
+}
+console.log(" Greatest Decrease in Profits: Sep-2013 ("+lowest+")")
 
 
 
