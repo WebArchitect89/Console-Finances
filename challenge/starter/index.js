@@ -86,20 +86,61 @@ var finances = [
     ['Jan-2017', 138230],
     ['Feb-2017', 671099]
 ];
-
+// Calculated the total number of months
 console.log("Financial Analysis");
 console.log("--------------------");
 console.log("-------");
 var totalNumberOfMonths = (finances.length);
 console.log(" Total Months: " + totalNumberOfMonths);
+
+// Calculated the total net of profit and loss
 var sum = 0;
-
-
 for(var v = 0; v < finances.length; v++){
      sum += finances [v][1];
 }
-
 console.log(" Total: $" + sum)
+
+//The average of the changes in Profit/Losses over the entire period.
+  //Step 1 Create an array to hold the monthly changes
+
+var monthlyChangesPL =[];
+  // create a for loop to find out the monthly differences
+for(var v = 1; v < finances.length; v ++){
+    monthlyChangesPL.push(finances[v][1] - finances[v-1][1]);
+}
+
+//console.log(monthlyChangesPL)
+
+  //step 2 find out the total of the monthly changes
+ 
+var totalMonthlyChange = 0;
+
+for(var v = 0; v < monthlyChangesPL.length; v++){
+    totalMonthlyChange += monthlyChangesPL [v];
+}
+
+//console.log(totalMonthlyChange)
+
+//Divide to find out the average change in profits
+
+var totalNumberOfM = (finances.length - 1)
+var averageChange = totalMonthlyChange/totalNumberOfM;
+
+console.log(" Average Change: $" + averageChange)
+
+//find out the greatest increase in profits (date and amount) over the entire.
+
+
+var largest = (monthlyChangesPL[0]);
+
+for (var i = 0; i<monthlyChangesPL.length; i++ ){
+    if(monthlyChangesPL[i]>largest){
+        largest = monthlyChangesPL[i];
+    }
+}
+console.log(" Greatest increase in profits:  Feb2012  "+ "("+largest+")")
+
+
 
 
 
